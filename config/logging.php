@@ -61,7 +61,11 @@ return [
         ],
 
         'papertrail' => [
+<<<<<<< HEAD
             'driver' => 'monolog',
+=======
+            'driver'  => 'monolog',
+>>>>>>> Creación de las rutas, vistas, auth, app.blade como plantilla y migrates
             'level' => 'debug',
             'handler' => SyslogUdpHandler::class,
             'handler_with' => [

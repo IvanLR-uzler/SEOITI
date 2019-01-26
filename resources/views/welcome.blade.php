@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -97,3 +98,21 @@
         </div>
     </body>
 </html>
+=======
+@extends('layouts.app')
+
+@section('content')
+        <div class="flex-center position-ref full-height">
+                <div class="content">
+                    <div class="title">
+                        SEOITI
+                    </div>
+                    <h3>Bienvenido al sistema de examenes online</h3>
+                    <p>Para comenzar puedes darle click a la opción "Ayuda", el cual te dará instrucciones de como realizar tu examen.</p>
+                    <p>O darle a "Realizar Examen" para comenzar.</p>
+                    <br><br><br><br>
+                    <a href="#" class="exam">Realizar Examen</a>
+                </div>
+        </div>
+@endsection
+>>>>>>> Creación de las rutas, vistas, auth, app.blade como plantilla y migrates

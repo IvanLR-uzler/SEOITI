@@ -13,7 +13,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+<<<<<<< HEAD
         //
+=======
+        //Schema::defaultStringLength(191);
+>>>>>>> Creación de las rutas, vistas, auth, app.blade como plantilla y migrates
     }
 
     /**
