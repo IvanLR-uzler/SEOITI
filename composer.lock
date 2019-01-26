@@ -2605,11 +2605,7 @@
                 },
                 {
                     "name": "Gert de Pagter",
-<<<<<<< HEAD
-                    "email": "BackEndTea@gmail.com"
-=======
                     "email": "backendtea@gmail.com"
->>>>>>> Creación de las rutas, vistas, auth, app.blade como plantilla y migrates
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
