@@ -17,11 +17,12 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('app');
-            $table->string('am');
-            $table->string('email', 100)->unique();
+            $table->string('apm');
+            $table->string('email')->unique();
+            $table->string('email_verified_at')->nullable();
             $table->string('password');
-            $table->UnsignedInteger('roll_id');
-            $table->foreign('roll_id')->references('id')->on('roll');
+            /*$table->UnsignedInteger('roll_id');
+            $table->foreign('roll_id')->references('id')->on('roll');*/
             $table->rememberToken();
             $table->timestamps();
         });

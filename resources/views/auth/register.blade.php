@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.original')
 
 @section('content')
 <div class="container">
@@ -20,6 +20,34 @@
                                 @if ($errors->has('name'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="app" class="col-md-4 col-form-label text-md-right">{{ __('Apellido paterno') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="app" type="text" class="form-control{{ $errors->has('app') ? ' is-invalid' : '' }}" name="app" value="{{ old('app') }}" required autofocus>
+
+                                @if ($errors->has('app'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('app') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="apm" class="col-md-4 col-form-label text-md-right">{{ __('Apellido materno') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="apm" type="text" class="form-control{{ $errors->has('apm') ? ' is-invalid' : '' }}" name="apm" value="{{ old('apm') }}" required autofocus>
+
+                                @if ($errors->has('apm'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('apm') }}</strong>
                                     </span>
                                 @endif
                             </div>

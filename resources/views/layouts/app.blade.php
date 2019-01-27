@@ -21,13 +21,19 @@
         <header class="font-header">
             <h1>Sistema de Examenes Online</h1>
         </header>
+        @if (Route::has('login'))
         <nav id="nav-list" class="links">
                 <a href="{{ route('welcome') }}">{{ __('Inicio') }}</a>
-                <a href="{{ route('register') }}">{{ __('Registro') }}</a>
                 <a href="{{ route('help') }}">{{ __('Ayuda') }}</a>
                 <a href="{{ route('comments') }}">{{ __('Comentarios') }}</a>
-                <a href="{{ route('login') }}">{{ __('Iniciar Sesión') }}</a>
+                @auth
+                    <a href="{{url('/home')}}"></a>
+                @else
+                    <a href="{{ route('login') }}">{{ __('Iniciar Sesión') }}</a>
+                    <a href="{{ route('register') }}">{{ __('Registro') }}</a>
+                @endauth
         </nav>
+        @endif
         <main class="py-4">
                 @yield('content')
         </main>

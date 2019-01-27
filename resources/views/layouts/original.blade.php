@@ -33,7 +33,43 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        @can('examns.index')
+                        <li class="nav-item">
+                            <a class='nav-link' href="{{ route('examns.index') }}">{{ __('Examenes') }}</a>
+                        </li>
+                        @endcan()
+                        @can('questions.index')
+                        <li class="nav-item">
+                            <a class='nav-link' href="{{ route('questions.index') }}">{{ __('Preguntas') }}</a>
+                        </li>
+                        @endcan()
+                        @can('aspirants.index')
+                        <li class="nav-item">
+                            <a class='nav-link' href="{{ route('aspirants.index') }}">{{ __('Aspirantes') }}</a>
+                        </li>
+                        @endcan()
+                        @can('users.index')
+                        <li class="nav-item">
+                            <a class='nav-link' href="{{ route('users.index') }}">{{ __('Usuarios') }}</a>
+                        </li>
+                        @endcan()
+                        @can('roles.index')
+                        <li class="nav-item">
+                            <a class='nav-link' href="{{ route('roles.index') }}">{{ __('Roles') }}</a>
+                        </li>
+                        @endcan()
+                        @can('knowledgementareas.index')
+                        <li class="nav-item">
+                            <a class='nav-link' href="{{ route('knowledgementareas.index') }}">{{ __('Areas del Conocimiento') }}</a>
+                        </li>
+                        @endcan()
+                        @can('schools.index')
+                        <li class="nav-item">
+                            <a class='nav-link' href="{{ route('schools.index') }}">{{ __('Escuelas') }}</a>
+                        </li>
+                        @endcan()
+                        <li class="nav-item"><a class='nav-link' href="{{ route('help') }}">{{ __('Ayuda') }}</a></li>
+                        <li class="nav-item"><a class='nav-link' href="{{ route('comments') }}">{{ __('Comentarios') }}</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -41,11 +77,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar Sesión') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
                                 </li>
                             @endif
                         @else
@@ -58,7 +94,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Cerrar Sesión') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -73,8 +109,25 @@
         </nav>
 
         <main class="py-4">
+            @if (session('info'))
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <div class="alert alert-success">
+                                {{ session('info') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+                
             @yield('content')
         </main>
     </div>
 </body>
+<br><br><br><br>
+<footer class="subtitle text-center">
+    <hr>
+    <p>Instituto Tecnológico del Istmo</p>
+</footer>
 </html>
