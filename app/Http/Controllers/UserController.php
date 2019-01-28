@@ -25,8 +25,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        $permissions= Permission::get();
-        return view('users.create', compact('permissions'));
+       $roles= Role::get();
+        return view('users.create', compact('roles'));
     }
     /**
      * Store a newly created resource in storage.
