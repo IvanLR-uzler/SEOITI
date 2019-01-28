@@ -7,6 +7,9 @@
             <div class="card">
                 <div class="card-header">
                     Usuarios
+                        <a href="{{ route('register') }}" class="btn btn-primary pull-right">
+                            Crear
+                        </a>
                 </div>
                 <div class="card-body">
                     <table class="table table-striped table-hover">
