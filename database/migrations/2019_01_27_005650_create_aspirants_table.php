@@ -26,14 +26,15 @@ class CreateAspirantsTable extends Migration
             $table->string('cellphone');
             $table->integer('totalReactives')->nullable();
             $table->json('answersExamn')->nullable();
+
             $table->unsignedInteger('school_id');
-            $table->foreign('school_id')->references('id')->on('schools');
+            $table->foreign('school_id')->references('id')->on('schools')->onDelete('cascade');
             $table->unsignedInteger('examn_id');
-            $table->foreign('examn_id')->references('id')->on('examns');
+            $table->foreign('examn_id')->references('id')->on('examns')->onDelete('cascade');
             $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedInteger('knowArea_id');
-            $table->foreign('knowArea_id')->references('id')->on('knowledgmentArea');
+            $table->foreign('knowArea_id')->references('id')->on('knowledgement_areas')->onDelete('cascade');
             $table->timestamps();
         });
     }

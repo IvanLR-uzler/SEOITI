@@ -18,6 +18,28 @@ class UserController extends Controller
         $users = User::paginate();
         return view('users.index', compact('users'));
     }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $permissions= Permission::get();
+        return view('users.create', compact('permissions'));
+    }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $user = User::create($request->all());
+        return redirect()->route('users.edit', $user->id)
+            ->with('info', 'Usuario guardada con éxito');
+    }
 
     /**
      * Display the specified resource.
@@ -25,6 +47,7 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
+
     public function show(User $user)
     {
         //dd($user->id);

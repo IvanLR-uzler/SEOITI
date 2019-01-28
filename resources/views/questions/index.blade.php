@@ -6,49 +6,56 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    Usuarios
-                    @can('users.create')
-                        <a href="{{route('users.create')}} "
-                           class="btn btn-sm btn-primary float-right">Crear</a>
+                    Preguntas
+                    @can('questions.create')
+                        <a href="{{route('questions.create')}}" class="btn btn-primary pull-right">
+                            Crear
+                        </a>
                     @endcan
                 </div>
-
-            </div>
                 <div class="card-body">
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
                                 <th width="10px">ID</th>
-                                <th>Nombre</th>
-                                <th>Apellido Paterno</th>
-                                <th>Apellido Paterno</th>
+                                <th>Pregunta</th>
+                                <th>Respuesta A</th>
+                                <th>Respuesta B</th>
+                                <th>Respuesta C</th>
+                                <th>Respuesta D</th>
+                                <th>Respuesta correcta</th>
                                 <th colspan="3">&nbsp;</th>
+
+
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($users as $user)
+                            @foreach ($questions as $question)
                                 <tr>
-                                    <td>{{$user->id}}</td>
-                                    <td>{{$user->name}}</td>
-                                    <td>{{$user->app}}</td>
-                                    <td>{{$user->apm}}</td>
+                                    <td>{{$question->id}}</td>
+                                    <td>{{$question->context}}</td>
+                                    <td>{{ $question->ansA }}</td>
+                                    <td>{{ $question->ansB }}</td>
+                                    <td>{{ $question->ansC }}</td>
+                                    <td>{{ $question->ansD }}</td>
+                                    <td>{{ $question->correctAns }}</td>
                                     <td>
-                                        @can('users.show')
-                                            <a href="{{route("users.show", $user->id)}}" class="btn btn-sm btn-default">
+                                        @can('questions.show')
+                                            <a href="{{route("questions.show", $question->id)}}" class="btn btn-sm btn-default">
                                                 Ver
                                             </a>
                                         @endcan
                                     </td>
                                     <td>
-                                        @can('users.edit')
-                                            <a href="{{route("users.edit", $user->id)}}" class="btn btn-sm btn-default">
+                                        @can('questions.edit')
+                                            <a href="{{route("questions.edit", $question->id)}}" class="btn btn-sm btn-default">
                                                 Editar
                                             </a>
                                         @endcan
                                     </td>
                                     <td>
-                                        @can('users.destroy')
-                                            {!! Form::open(['route' => ['users.destroy', $user->id],
+                                        @can('questions.destroy')
+                                            {!! Form::open(['route' => ['questions.destroy', $question->id],
                                             'method' => 'DELETE']) !!}
                                                 <button class="btn btn-sm btn-danger">Eliminar</button>
                                             {!! Form::close() !!}
@@ -58,7 +65,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{$users->render()}}
+                    {{$questions->render()}}
                 </div>
             </div>
         </div>

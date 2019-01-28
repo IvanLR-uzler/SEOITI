@@ -7,13 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     Usuarios
-                    @can('users.create')
-                        <a href="{{route('users.create')}} "
-                           class="btn btn-sm btn-primary float-right">Crear</a>
-                    @endcan
                 </div>
-
-            </div>
                 <div class="card-body">
                     <table class="table table-striped table-hover">
                         <thead>
@@ -54,7 +48,7 @@
                                             {!! Form::close() !!}
                                         @endcan
                                     </td>
-                                </tr>
+                                </tr>                                
                             @endforeach
                         </tbody>
                     </table>

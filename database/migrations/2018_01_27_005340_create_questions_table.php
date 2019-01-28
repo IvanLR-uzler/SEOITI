@@ -21,11 +21,11 @@ class CreateQuestionsTable extends Migration
             $table->string('ansC');
             $table->string('ansD');
             $table->char('correctAns');
-            $table->integer('reactive');
-            $table->unsignedInteger('usuario_id');
-            $table->foreign('usuario_id')->references('id')->on('users');
-            $table->unsignedInteger('know_id');
-            $table->foreign('know_id')->references('id')->on('knowledgmentArea');
+            $table->integer('reactive')->nullable();
+            $table->unsignedInteger('know_id')->nullable();
+            $table->foreign('know_id')->references('id')->on('knowledgement_areas')->onDelete('cascade');
+            $table->unsignedInteger('usuario_id')->nullable();
+            $table->foreign('usuario_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

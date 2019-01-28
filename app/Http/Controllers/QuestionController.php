@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\KnowledgementArea;
 use App\Question;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        //
+        $questions = Question::paginate();
+        return view('questions.index', compact('questions'));
     }
 
     /**
@@ -24,7 +26,7 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        //
+        return view('questions.create');
     }
 
     /**
@@ -35,7 +37,9 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $question = Question::create($request->all());
+        return redirect()->route('questions.edit', $question->id)
+            ->with('info', 'Pregunta guardada con éxito');
     }
 
     /**
@@ -46,7 +50,7 @@ class QuestionController extends Controller
      */
     public function show(Question $question)
     {
-        //
+        return view('questions.show', compact('question'));
     }
 
     /**
@@ -57,7 +61,7 @@ class QuestionController extends Controller
      */
     public function edit(Question $question)
     {
-        //
+        return view('questions.edit ',compact('question'));
     }
 
     /**
@@ -69,7 +73,9 @@ class QuestionController extends Controller
      */
     public function update(Request $request, Question $question)
     {
-        //
+        $question->update($request->all());
+        return redirect()->route('questions.edit', $question->id)
+            ->with('info', 'Pregunta actualizado');
     }
 
     /**
