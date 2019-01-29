@@ -50,7 +50,7 @@ class AspirantController extends Controller
      */
     public function show(Aspirant $aspirant)
     {
-        return view('aspirants.show', compact('Aspirant'));
+        return view('aspirants.show', compact('aspirant'));
     }
 
     /**

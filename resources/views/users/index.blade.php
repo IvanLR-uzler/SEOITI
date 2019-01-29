@@ -22,6 +22,7 @@
                                 <th>Nombre</th>
                                 <th>Apellido Paterno</th>
                                 <th>Apellido Paterno</th>
+
                                 <th colspan="3">&nbsp;</th>
                             </tr>
                         </thead>
@@ -32,6 +33,7 @@
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->app}}</td>
                                     <td>{{$user->apm}}</td>
+
                                     <td>
                                         @can('users.show')
                                             <a href="{{route("users.show", $user->id)}}" class="btn btn-sm btn-default">
