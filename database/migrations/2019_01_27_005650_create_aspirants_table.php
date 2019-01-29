@@ -13,7 +13,7 @@ class CreateAspirantsTable extends Migration
      */
     public function up()
     {
-        Schema::create('aspirant', function (Blueprint $table) {
+        Schema::create('aspirants', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('app');
@@ -26,14 +26,13 @@ class CreateAspirantsTable extends Migration
             $table->string('cellphone');
             $table->integer('totalReactives')->nullable();
             $table->json('answersExamn')->nullable();
-
-            $table->unsignedInteger('school_id');
+            $table->unsignedInteger('school_id')->nullable();
             $table->foreign('school_id')->references('id')->on('schools')->onDelete('cascade');
-            $table->unsignedInteger('examn_id');
+            $table->unsignedInteger('examn_id')->nullable();
             $table->foreign('examn_id')->references('id')->on('examns')->onDelete('cascade');
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->unsignedInteger('knowArea_id');
+            $table->unsignedInteger('knowArea_id')->nullable();
             $table->foreign('knowArea_id')->references('id')->on('knowledgement_areas')->onDelete('cascade');
             $table->timestamps();
         });

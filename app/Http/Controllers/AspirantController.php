@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Aspirant;
+use Caffeinated\Shinobi\Models\Role;
 use Illuminate\Http\Request;
 
 class AspirantController extends Controller
@@ -14,7 +15,8 @@ class AspirantController extends Controller
      */
     public function index()
     {
-        //
+        $aspirants = Aspirant::paginate();
+        return view('aspirants.index', compact('aspirants'));
     }
 
     /**
@@ -24,7 +26,7 @@ class AspirantController extends Controller
      */
     public function create()
     {
-        //
+        return view('aspirants.create');
     }
 
     /**
@@ -35,7 +37,9 @@ class AspirantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $aspirant = Aspirant::create($request->all());
+        return redirect()->route('aspirants.edit', $aspirant->id)
+            ->with('info', 'Usuario guardada con éxito');
     }
 
     /**
@@ -46,7 +50,7 @@ class AspirantController extends Controller
      */
     public function show(Aspirant $aspirant)
     {
-        //
+        return view('aspirants.show', compact('Aspirant'));
     }
 
     /**
@@ -57,7 +61,7 @@ class AspirantController extends Controller
      */
     public function edit(Aspirant $aspirant)
     {
-        //
+        return view('aspirants.edit',compact('aspirant'));
     }
 
     /**
@@ -69,7 +73,9 @@ class AspirantController extends Controller
      */
     public function update(Request $request, Aspirant $aspirant)
     {
-        //
+        $aspirant->update($request->all());
+        return redirect()->route('aspirants.edit', $aspirant->id)
+            ->with('info', 'Usuario actualizado');
     }
 
     /**
@@ -80,6 +86,6 @@ class AspirantController extends Controller
      */
     public function destroy(Aspirant $aspirant)
     {
-        //
+
     }
 }

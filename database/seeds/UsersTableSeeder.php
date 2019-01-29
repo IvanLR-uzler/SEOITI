@@ -12,6 +12,14 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        \App\User::create([
+            'name'=> 'Ivan',
+            'app'=> 'Leon',
+            'apm'=> 'Robles',
+            'email'=> 'dftn1996@gamil.com',
+            'password'=> '123456'
+        ]);
+
         factory(App\User::class,20)->create();
 
         Role::create([
@@ -19,5 +27,7 @@ class UsersTableSeeder extends Seeder
             'slug' => 'admin',
             'special' =>'all-access'
         ]);
+
+
     }
 }

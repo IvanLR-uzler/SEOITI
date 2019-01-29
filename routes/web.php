@@ -28,7 +28,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Routes
 Route::middleware(['auth'])->group(function(){
     //Roles
-    Route::get('/register', 'HomeController@index')->name('home');
+    //Route::get('/register', 'HomeController@index')->name('home');
     Route::post('roles/store', 'RoleController@store')->name('roles.store')->middleware('permission:roles.create');
     Route::get('roles','RoleController@index')->name('roles.index')->middleware('permission:roles.index');
     Route::get('roles/create','RoleController@create')->name('roles.create')->middleware('permission:roles.create');
@@ -46,7 +46,7 @@ Route::middleware(['auth'])->group(function(){
     Route::get('knowledgementareas/{knowledgementArea}/edit','KnowledgementAreaController@edit')->name('knowledgementareas.edit')->middleware('permission:knowledgementareas.edit');
 
     //Users
-    Route::get('/register', 'UserController@index')->name('home');
+    //Route::get('/register', 'UserController@index')->name('home');
     Route::post('users/store', 'UserController@store')->name('users.store')->middleware('permission:users.create');
     Route::get('users','UserController@index')->name('users.index')->middleware('permission:users.index');
     Route::get('users/create','UserController@create')->name('users.create')->middleware('permission:users.create');
