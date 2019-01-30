@@ -6,9 +6,9 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    Preguntas
-                    @can('questions.create')
-                        <a href="{{route('questions.create')}}" class="btn-sm btn-primary float-right">
+                    Examenes
+                    @can('examns.create')
+                        <a href="{{route('examns.create')}}" class="btn-sm btn-primary float-right">
                             Crear
                         </a>
                     @endcan
@@ -17,33 +17,31 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>Pregunta</th>
-                                <th>Respuesta correcta</th>
+                                <th>Fecha de creación del examen</th>
                                 <th colspan="3">&nbsp;</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($questions as $question)
+                            @foreach ($examns as $examn)
                                 <tr>
-                                    <td>{{$question->context}}</td>
-                                    <td>{{ $question->correctAns }}</td>
+                                    <td>{{$examn->date}}</td>
                                     <td>
-                                        @can('questions.show')
-                                            <a href="{{route("questions.show", $question->id)}}" class="btn btn-sm btn-default">
+                                        @can('examns.show')
+                                            <a href="{{route("examns.show", $examn->id)}}" class="btn btn-sm btn-default">
                                                 Detalles
                                             </a>
                                         @endcan
                                     </td>
                                     <td>
-                                        @can('questions.edit')
-                                            <a href="{{route("questions.edit", $question->id)}}" class="btn btn-sm btn-default">
+                                        @can('examns.edit')
+                                            <a href="{{route("examns.edit", $examn->id)}}" class="btn btn-sm btn-default">
                                                 Editar
                                             </a>
                                         @endcan
                                     </td>
                                     <td>
-                                        @can('questions.destroy')
-                                            {!! Form::open(['route' => ['questions.destroy', $question->id],
+                                        @can('examns.destroy')
+                                            {!! Form::open(['route' => ['examns.destroy', $examn->id],
                                             'method' => 'DELETE']) !!}
                                                 <button class="btn btn-sm btn-danger">Eliminar</button>
                                             {!! Form::close() !!}
@@ -53,7 +51,6 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{$questions->render()}}
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Examn;
 use Illuminate\Http\Request;
+use App\Question;
 
 class ExamnController extends Controller
 {
@@ -14,7 +15,8 @@ class ExamnController extends Controller
      */
     public function index()
     {
-        //
+        $examns = Examn::paginate();
+        return view('examns.index', compact('examns'));
     }
 
     /**
@@ -24,7 +26,8 @@ class ExamnController extends Controller
      */
     public function create()
     {
-        //
+        $questions = Question::get();
+        return view('examns.create', compact('questions'));
     }
 
     /**
@@ -35,7 +38,9 @@ class ExamnController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $examn = Examn::create($request->all());
+        return redirect()->route('examns.edit', $examn->id)
+            ->with('info', 'Pregunta guardada con éxito');
     }
 
     /**
@@ -46,7 +51,8 @@ class ExamnController extends Controller
      */
     public function show(Examn $examn)
     {
-        //
+        $questions = Question::get();
+        return view('examns.show', compact('questions', 'examn'));
     }
 
     /**
@@ -57,7 +63,8 @@ class ExamnController extends Controller
      */
     public function edit(Examn $examn)
     {
-        //
+        $questions=Question::get();
+        return view('examns.edit',compact('examn', 'questions'));
     }
 
     /**
@@ -69,7 +76,10 @@ class ExamnController extends Controller
      */
     public function update(Request $request, Examn $examn)
     {
-        //
+        $examn->update($request->all());
+        $examn->roles()->sync($request->get('questions'));
+        return redirect()->route('examns.edit', $examn->id)
+        ->with('info', 'Examen actualizado');
     }
 
     /**
@@ -80,6 +90,7 @@ class ExamnController extends Controller
      */
     public function destroy(Examn $examn)
     {
-        //
+        $examn->destroy();
+        return back()->with('info','Examen eliminado correctamente');
     }
 }

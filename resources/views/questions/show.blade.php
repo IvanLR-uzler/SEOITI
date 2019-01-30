@@ -13,8 +13,6 @@
                     <p><strong>Respuesta C</strong> {{ $question->ansC }} </p>
                     <p><strong>Respuesta D</strong> {{ $question->ansD }} </p>
                     <p><strong>Respuesta correcta</strong> {{ $question->correctAns }} </p>
-
-
                 </div>
             </div>
         </div>

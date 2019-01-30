@@ -16,8 +16,8 @@ class UsersTableSeeder extends Seeder
             'name'=> 'Ivan',
             'app'=> 'Leon',
             'apm'=> 'Robles',
-            'email'=> 'dftn1996@gamil.com',
-            'password'=> '123456'
+            'email'=> 'ejemplo@gmail.com',
+            'password'=> 'ejemplo'
         ]);
 
         factory(App\User::class,20)->create();

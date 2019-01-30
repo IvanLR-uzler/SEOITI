@@ -26,7 +26,8 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        return view('questions.create');
+        $knowledgementAreas = KnowledgementArea::get();
+        return view('questions.create', compact('knowledgementAreas'));
     }
 
     /**
@@ -61,7 +62,8 @@ class QuestionController extends Controller
      */
     public function edit(Question $question)
     {
-        return view('questions.edit ',compact('question'));
+        $knowledgementAreas = KnowledgementArea::get();
+        return view('questions.edit ',compact('question', 'knowledgementAreas'));
     }
 
     /**

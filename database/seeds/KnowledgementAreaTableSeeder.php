@@ -11,6 +11,6 @@ class KnowledgementAreaTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\KnowledgementArea::class,80)->create();
+        factory(App\KnowledgementArea::class,15)->create();
     }
 }
