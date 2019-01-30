@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\KnowledgementArea;
 use App\Question;
 use Illuminate\Http\Request;
+use App\User;
 
 class QuestionController extends Controller
 {
@@ -15,8 +16,10 @@ class QuestionController extends Controller
      */
     public function index()
     {
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
         $questions = Question::paginate();
-        return view('questions.index', compact('questions'));
+        return view('questions.index', compact('questions'))->with('user_id',$user->user_id);
     }
 
     /**
@@ -26,7 +29,7 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        $knowledgementAreas = KnowledgementArea::get();
+        $knowledgementAreas = KnowledgementArea::pluck('name');
         return view('questions.create', compact('knowledgementAreas'));
     }
 
@@ -51,7 +54,8 @@ class QuestionController extends Controller
      */
     public function show(Question $question)
     {
-        return view('questions.show', compact('question'));
+        $user = User::get();
+        return view('questions.show', compact('question', 'user'));
     }
 
     /**
@@ -62,7 +66,7 @@ class QuestionController extends Controller
      */
     public function edit(Question $question)
     {
-        $knowledgementAreas = KnowledgementArea::get();
+        $knowledgementAreas = KnowledgementArea::pluck('name');
         return view('questions.edit ',compact('question', 'knowledgementAreas'));
     }
 
@@ -88,6 +92,7 @@ class QuestionController extends Controller
      */
     public function destroy(Question $question)
     {
-        //
+        $question->delete();
+        return back()->with('info','Pregunta eliminada correctamente');
     }
 }

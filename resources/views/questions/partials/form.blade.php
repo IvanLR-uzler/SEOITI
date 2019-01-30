@@ -20,25 +20,21 @@
 </div>
 <div class="form-group">
     {{ Form::label('correctAns', 'Respuesta Correcta', ) }}
-    {{ Form::text('correctAns',null, ['class' => 'form-control float-left']) }}
+    {{ Form::text('correctAns',null, ['class' => 'form-control']) }}
 </div>
-<div>
+<div class="form-group">
     {{ Form::label('raective', 'Reactivo') }}
-    {{ Form::text('reactive',null, ['class' => 'form-control float-right']) }}
+    {{ Form::text('reactive',null, ['class' => 'form-control']) }}
+</div>
+<div class="form-group">
+    {{ Form::label('user_id', 'Usuario creador') }}
+    {{ Form::text('user_id',null, ['class' => 'form-control', 'name' => 'user_id']) }}
 </div>
 <hr>
+<br>
 <h3>Listado de areas del conocimiento</h3>
 <div class="form-group">
-        <ul class="list-unstyled">
-                @foreach ($knowledgementAreas as $knowledgementArea)
-                    <li>
-                            <label>
-                                {{ Form::checkbox('knowledgementAreas[]', $knowledgementArea->id, null) }}
-                                {{ $knowledgementArea->name }}
-                            </label>
-                    </li>
-                @endforeach
-        </ul>
+        {!! Form::select('knowledgementAreas', $knowledgementAreas, null, ['class' => 'custom-select', 'name' => 'know_id'] ) !!}
 </div>
 <div class="form-group">
         {{ Form::submit('Guardar', ['class' => 'btn btn-sm btn-primary']) }}

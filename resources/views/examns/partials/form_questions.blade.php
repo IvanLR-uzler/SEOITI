@@ -5,9 +5,9 @@
                         @foreach ($questions as $question)
                             <li>
                                     <label>
-                                        {{ Form::checkbox('questions[]', $question->context, null) }}
-                                        {{ $question->correctAns }}
-                                        <em>({{ $question->reactive ?: 'N/A' }})</em>
+                                        {{ Form::checkbox('questions[]', $question->id, null) }}
+                                        {{ $question->context }}
+                                        <em>Reactivos ({{ $question->reactive ?: 'N/A' }})</em>
                                     </label>
                             </li>
                         @endforeach

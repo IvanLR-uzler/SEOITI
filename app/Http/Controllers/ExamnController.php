@@ -27,7 +27,7 @@ class ExamnController extends Controller
     public function create()
     {
         $questions = Question::get();
-        return view('examns.create', compact('questions'));
+        return view('examns.create', compact('questions',$this));
     }
 
     /**
@@ -77,7 +77,7 @@ class ExamnController extends Controller
     public function update(Request $request, Examn $examn)
     {
         $examn->update($request->all());
-        $examn->roles()->sync($request->get('questions'));
+        $examn->questions()->sync($request->get('questions'));
         return redirect()->route('examns.edit', $examn->id)
         ->with('info', 'Examen actualizado');
     }
@@ -90,7 +90,7 @@ class ExamnController extends Controller
      */
     public function destroy(Examn $examn)
     {
-        $examn->destroy();
+        $examn->delete();
         return back()->with('info','Examen eliminado correctamente');
     }
 }

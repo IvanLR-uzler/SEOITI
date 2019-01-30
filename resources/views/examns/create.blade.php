@@ -16,9 +16,9 @@
             <div class="card">
                 <div class="card-body">
                         <div>
-                            {!! Form::open(['examn' => 'examns.store']) !!}
-                                @include('examns.partials.form_questions')
-                            {!! Form::close() !!}
+                                {!! Form::open(['examn' => 'examns.store']) !!}
+                                    @include('examns.partials.form_questions')
+                                {!! Form::close() !!}
                         </div>
                 </div>
             </div>
