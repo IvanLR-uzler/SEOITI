@@ -14,7 +14,8 @@ class SchoolController extends Controller
      */
     public function index()
     {
-        //
+        $schools = School::paginate();
+        return view('schools.index', compact('schools'));
     }
 
     /**
@@ -24,7 +25,7 @@ class SchoolController extends Controller
      */
     public function create()
     {
-        //
+        return view('schools.create');
     }
 
     /**
@@ -35,7 +36,9 @@ class SchoolController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $school = School::create($request->all());
+        return redirect()->route('schools.edit', $school->id)
+            ->with('info', 'Datos de la School guardados guardado con éxito');
     }
 
     /**
@@ -46,7 +49,7 @@ class SchoolController extends Controller
      */
     public function show(School $school)
     {
-        //
+        return view('schools.show', compact('school'));
     }
 
     /**
@@ -57,7 +60,7 @@ class SchoolController extends Controller
      */
     public function edit(School $school)
     {
-        //
+        return view('schools.show', compact('school'));
     }
 
     /**
@@ -69,7 +72,7 @@ class SchoolController extends Controller
      */
     public function update(Request $request, School $school)
     {
-        //
+        return view('schools.edit',compact('school'));
     }
 
     /**
@@ -80,6 +83,7 @@ class SchoolController extends Controller
      */
     public function destroy(School $school)
     {
-        //
+        $school->delete();
+        return back()->with('info','Eliminado correctamente');
     }
 }

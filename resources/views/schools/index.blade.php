@@ -6,9 +6,9 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        Listado de Roles
-                        @can('roles.create')
-                            <a href="{{route('roles.create')}} "
+                        Listado de schools
+                        @can('schools.create')
+                            <a href="{{route('schools.create')}} "
                                class="btn btn-sm btn-primary float-right">Crear</a>
                         @endcan
                     </div>
@@ -25,25 +25,25 @@
                             </thead>
 
                             <tbody>
-                            @foreach($roles as $role)
+                            @foreach($schools as $school)
                                 <tr>
-                                    <td>{{ $role->id}}</td>
-                                    <td>{{ $role->name }}</td>
+                                    <td>{{ $school->id}}</td>
+                                    <td>{{ $school->nameSchool}}</td>
                                     <td width="10px">
-                                        @can('roles.show')
-                                            <a href="{{route('roles.show', $role->id)}}"
+                                        @can('schools.show')
+                                            <a href="{{route('schools.show', $school->id)}}"
                                                class="btn btn-sm btn-secondary">Ver</a>
                                         @endcan
                                     </td>
                                     <td width="10px">
-                                        @can('roles.edit')
-                                            <a href="{{route('roles.edit', $role->id)}}"
+                                        @can('schools.edit')
+                                            <a href="{{route('schools.edit', $school->id)}}"
                                                class="btn btn-sm btn-secondary">Editar</a>
                                         @endcan
                                     </td>
                                     <td width="10px">
-                                        @can('roles.destroy')
-                                            {!! Form::open(['route'=>['roles.destroy', $role->id],
+                                        @can('schools.destroy')
+                                            {!! Form::open(['route'=>['schools.destroy', $school->id],
                                             'method'=>'DELETE'])!!}
 
                                             <button class="btn btn-sm btn-danger">Eliminar</button>
@@ -55,7 +55,7 @@
                             @endforeach
                             </tbody>
                         </table>
-                        {{$roles->render()}}
+                        {{$schools->render()}}
 
                     </div>
                 </div>
