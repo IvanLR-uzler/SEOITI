@@ -7,9 +7,9 @@
                 <div class="card">
                     <div class="card-header">Roles</div>
                     <div class="panel-body">
-                        {!! Form::open(['route'=> ['roles.store']])!!}
+                        {!! Form::open(['route'=> ['schools.store']])!!}
 
-                        @include('roles.partials.form')
+                        @include('schools.partials.form')
 
                         {!! Form::close() !!}
                     </div>

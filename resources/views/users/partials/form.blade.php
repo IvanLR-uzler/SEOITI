@@ -13,12 +13,30 @@
 <div class="form-group">
         {{ Form::label('email', 'Email') }}
         {{ Form::text('email',null, ['class' => 'form-control']) }}
+
 </div>
+
+    <div class="form-group">
+        {{ Form::label('password', 'Contraseña') }}
+        {{ Form::text('password',null, ['class' => 'form-control']) }}
+    </div>
+
 <div class="form-group">
-        {{ Form::label('email-verified-at', 'Confirmar email') }}
-        {{ Form::text('email-verified-at',null, ['class' => 'form-control']) }}
+    {{ Form::label('password', 'Confimar contraseña') }}
+    {{ Form::text('password',null, ['class' => 'form-control']) }}
+
+    @if ($errors->has('password'))
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $errors->first('password') }}</strong>
+        </span>
+    @endif
 </div>
-<hr>
+
+
+
+
+
+    <hr>
 <h3>Listado de roles</h3>
 <div class="form-group">
         <ul class="list-unstyled">

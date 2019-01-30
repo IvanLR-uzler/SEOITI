@@ -8,9 +8,7 @@
                     <div class="card-header">Roles</div>
 
                     <div class="panel-body">
-                        <p><strong>Nombre: </strong>{{$role->name}}</p>
-                        <p><strong>Slug: </strong>{{$role->slug}}</p>
-                        <p><strong>Descripcion: </strong>{{$role->description}}</p>
+                        <p><strong>Nombre: </strong>{{$school->nameSchool}}</p>
                     </div>
                 </div>
             </div>
