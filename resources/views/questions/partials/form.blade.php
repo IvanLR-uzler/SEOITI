@@ -31,7 +31,6 @@
     {{ Form::text('user_id',null, ['class' => 'form-control', 'name' => 'user_id']) }}
 </div>
 <hr>
-<br>
 <h3>Listado de areas del conocimiento</h3>
 <div class="form-group">
         {!! Form::select('knowledgementAreas', $knowledgementAreas, null, ['class' => 'custom-select', 'name' => 'know_id'] ) !!}

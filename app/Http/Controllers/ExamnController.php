@@ -38,7 +38,7 @@ class ExamnController extends Controller
      */
     public function store(Request $request)
     {
-        $examn = Examn::create($request->all());
+        $examn = Examn::create($request->all(), $request->correctAns()->json_encode);
         return redirect()->route('examns.edit', $examn->id)
             ->with('info', 'Pregunta guardada con éxito');
     }
@@ -76,8 +76,9 @@ class ExamnController extends Controller
      */
     public function update(Request $request, Examn $examn)
     {
-        $examn->update($request->all());
-        $examn->questions()->sync($request->get('questions'));
+        $questions=$request->input('questions[]');
+        $correcAns = Question::create(json_encode($questions));
+        $examn->update($request->all(), $correctAns);
         return redirect()->route('examns.edit', $examn->id)
         ->with('info', 'Examen actualizado');
     }

@@ -5,7 +5,7 @@
                         @foreach ($questions as $question)
                             <li>
                                     <label>
-                                        {{ Form::checkbox('questions[]', $question->id, null) }}
+                                        {{ Form::checkbox('questions[]', $question->id, null,['class' => 'correctAns']) }}
                                         {{ $question->context }}
                                         <em>Reactivos ({{ $question->reactive ?: 'N/A' }})</em>
                                     </label>
