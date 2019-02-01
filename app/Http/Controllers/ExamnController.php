@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Examn;
 use Illuminate\Http\Request;
 use App\Question;
+use function GuzzleHttp\json_encode;
 
 class ExamnController extends Controller
 {
@@ -26,8 +27,9 @@ class ExamnController extends Controller
      */
     public function create()
     {
+        $user_id = auth()->user()->id;
         $questions = Question::get();
-        return view('examns.create', compact('questions'));
+        return view('examns.create', compact('questions','user_id'));
     }
 
     /**
@@ -37,10 +39,12 @@ class ExamnController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $examn = Examn::create()->json_encode()->$request->all();
-        return redirect()->route('examns.edit', $examn->id)
-            ->with('info', 'Pregunta guardada con éxito');
+    {   
+        $examn = json_encode($request->input('questions'));
+        dd($examn);
+        $examns = Examn::create(correctAns($examn), user_id(auth()->user()->id));
+        return redirect()->route('examns.edit', $examns->id)
+            ->with('info', 'Examen guardado con éxito');
     }
 
     /**

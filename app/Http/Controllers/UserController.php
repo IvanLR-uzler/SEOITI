@@ -38,7 +38,7 @@ class UserController extends Controller
     {
         $user = User::create($request->all());
         return redirect()->route('users.edit', $user->id)
-            ->with('info', 'Usuario guardada con éxito');
+            ->with('info', 'Usuario guardado con éxito');
     }
 
     /**

@@ -68,7 +68,7 @@ class QuestionController extends Controller
     public function edit(Question $question)
     {
         $user_id = auth()->user()->id;
-        $knowledgementAreas = KnowledgementArea::pluck('name','id');
+        $knowledgementAreas = KnowledgementArea::get();
         return view('questions.edit ',compact('question', 'knowledgementAreas','user_id'));
     }
 
