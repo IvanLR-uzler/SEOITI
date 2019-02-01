@@ -33,9 +33,14 @@
     </div>
 </div>
 <div class="float-right col-md-4">
-    <h3>Listado de areas del conocimiento</h3>
+    <h3>Areas del conocimiento</h3>
 <div class="form-group">
-        {!! Form::select('knowledgementAreas', ['Selecciona una opción', $knowledgementAreas], null, ['class' => 'custom-select', 'name' => 'know_id'] ) !!}
+        <select name="know_id" class="custom-select">
+            <option value="0" selected="selected">Selecciona una opción</option>
+            @foreach ($knowledgementAreas as $knowledgementArea)
+                <option value="{{$knowledgementArea->id}}">{{$knowledgementArea->name}}</option>
+            @endforeach
+        </select>
 </div>
 <div class="form-group">
         {{ Form::submit('Guardar', ['class' => 'btn btn-sm btn-primary']) }}

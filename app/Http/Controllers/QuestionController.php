@@ -30,7 +30,7 @@ class QuestionController extends Controller
     public function create()
     {
         $user_id = auth()->user()->id;
-        $knowledgementAreas = KnowledgementArea::pluck('name');
+        $knowledgementAreas = KnowledgementArea::get();
         return view('questions.create', compact('knowledgementAreas', 'user_id'));
     }
 
@@ -68,7 +68,7 @@ class QuestionController extends Controller
     public function edit(Question $question)
     {
         $user_id = auth()->user()->id;
-        $knowledgementAreas = KnowledgementArea::pluck('name');
+        $knowledgementAreas = KnowledgementArea::pluck('name','id');
         return view('questions.edit ',compact('question', 'knowledgementAreas','user_id'));
     }
 

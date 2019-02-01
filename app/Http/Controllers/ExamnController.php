@@ -26,7 +26,7 @@ class ExamnController extends Controller
      */
     public function create()
     {
-        $questions = Question::get()->json_encode();
+        $questions = Question::get();
         return view('examns.create', compact('questions'));
     }
 

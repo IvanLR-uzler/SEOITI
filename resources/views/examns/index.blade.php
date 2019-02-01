@@ -18,6 +18,7 @@
                         <thead>
                             <tr>
                                 <th>Fecha de creación del examen</th>
+                                <th>Última actualización del examen</th>
                                 <th colspan="3">&nbsp;</th>
                             </tr>
                         </thead>
@@ -25,6 +26,7 @@
                             @foreach ($examns as $examn)
                                 <tr>
                                     <td>{{$examn->created_at}}</td>
+                                    <td>{{$examn->updated_at}}</td>
                                     <td>
                                         @can('examns.show')
                                             <a href="{{route("examns.show", $examn->id)}}" class="btn btn-sm btn-default">
