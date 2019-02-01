@@ -8,7 +8,7 @@
                 <div class="card-header">
                     Areas del Conocimiento
                     @can('knowledgementareas.create')
-                        <a href="{{route('knowledgementareas.create')}}" class="btn btn-primary pull-right">
+                        <a href="{{route('knowledgementareas.create')}}" class="btn btn-sm btn-primary float-right">
                             Crear
                         </a>
                     @endcan

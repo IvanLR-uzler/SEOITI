@@ -15,7 +15,6 @@ class CreateExamnsTable extends Migration
     {
         Schema::create('examns', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('date');
             $table->json('correctAns');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');

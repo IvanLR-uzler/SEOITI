@@ -26,8 +26,8 @@ class ExamnController extends Controller
      */
     public function create()
     {
-        $questions = Question::get();
-        return view('examns.create', compact('questions',$this));
+        $questions = Question::get()->json_encode();
+        return view('examns.create', compact('questions'));
     }
 
     /**
@@ -38,7 +38,7 @@ class ExamnController extends Controller
      */
     public function store(Request $request)
     {
-        $examn = Examn::create($request->all(), $request->correctAns()->json_encode);
+        $examn = Examn::create()->json_encode()->$request->all();
         return redirect()->route('examns.edit', $examn->id)
             ->with('info', 'Pregunta guardada con éxito');
     }

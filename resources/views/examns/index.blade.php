@@ -24,7 +24,7 @@
                         <tbody>
                             @foreach ($examns as $examn)
                                 <tr>
-                                    <td>{{$examn->date}}</td>
+                                    <td>{{$examn->created_at}}</td>
                                     <td>
                                         @can('examns.show')
                                             <a href="{{route("examns.show", $examn->id)}}" class="btn btn-sm btn-default">

@@ -15,7 +15,7 @@
                     <p><strong>Respuesta correcta</strong> {{ $question->correctAns }} </p>
                     <p><strong>Reactivo</strong> {{ $question->reactive }} </p>
                     <p><strong>Area del conocimiento</strong> {{ $question->know_id }} </p>
-                    <p><strong>Usuario creador</strong> {{ $question->usuario_id }} </p>
+                    <p><strong>Usuario creador</strong> {{ $user_name }} </p>
                 </div>
             </div>
         </div>

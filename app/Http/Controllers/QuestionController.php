@@ -16,10 +16,10 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        $user_id = auth()->user()->id;
-        $user = User::find($user_id);
+        //$user_id = auth()->user()->id;
+        //$user = User::find($user_id);
         $questions = Question::paginate();
-        return view('questions.index', compact('questions'))->with('user_id',$user->user_id);
+        return view('questions.index', compact('questions'));//->with('user_id',$user->user_id);
     }
 
     /**
@@ -29,8 +29,9 @@ class QuestionController extends Controller
      */
     public function create()
     {
+        $user_id = auth()->user()->id;
         $knowledgementAreas = KnowledgementArea::pluck('name');
-        return view('questions.create', compact('knowledgementAreas'));
+        return view('questions.create', compact('knowledgementAreas', 'user_id'));
     }
 
     /**
@@ -54,8 +55,8 @@ class QuestionController extends Controller
      */
     public function show(Question $question)
     {
-        $user = User::get();
-        return view('questions.show', compact('question', 'user'));
+        $user_name = auth()->user()->email;
+        return view('questions.show', compact('question','user_name'));
     }
 
     /**
@@ -66,8 +67,9 @@ class QuestionController extends Controller
      */
     public function edit(Question $question)
     {
+        $user_id = auth()->user()->id;
         $knowledgementAreas = KnowledgementArea::pluck('name');
-        return view('questions.edit ',compact('question', 'knowledgementAreas'));
+        return view('questions.edit ',compact('question', 'knowledgementAreas','user_id'));
     }
 
     /**

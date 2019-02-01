@@ -15,17 +15,17 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('context');
+            $table->string('context',255);
             $table->string('ansA');
             $table->string('ansB');
             $table->string('ansC');
             $table->string('ansD');
-            $table->char('correctAns');
+            $table->char('correctAns',1);
             $table->integer('reactive');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedInteger('know_id');
             $table->foreign('know_id')->references('id')->on('knowledgement_areas')->onDelete('cascade');
-            $table->unsignedInteger('usuario_id');
-            $table->foreign('usuario_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

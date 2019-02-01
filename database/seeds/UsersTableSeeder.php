@@ -20,6 +20,14 @@ class UsersTableSeeder extends Seeder
             'password'=> 'ejemplo'
         ]);
 
+        \App\User::create([
+            'name'=> 'Guillermo',
+            'app'=> 'Rios',
+            'apm'=> 'Silva',
+            'email'=> 'willstarxey@gmail.com',
+            'password'=> '$2y$10$G2Nhh2FuvfQoB3tvMEadBO2R/5Qi6kVUi/0nSqqnMdsZon51jO0CC'
+        ]);
+
         factory(App\User::class,20)->create();
 
         Role::create([

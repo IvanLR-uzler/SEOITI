@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
                     Preguntas
@@ -19,14 +19,16 @@
                             <tr>
                                 <th>Pregunta</th>
                                 <th>Respuesta correcta</th>
+                                <th>Reactivos</th>
                                 <th colspan="3">&nbsp;</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($questions as $question)
                                 <tr>
-                                    <td>{{$question->context}}</td>
+                                    <td>{{ $question->context }}</td>
                                     <td>{{ $question->correctAns }}</td>
+                                    <td>{{ $question->reactive }}</td>
                                     <td>
                                         @can('questions.show')
                                             <a href="{{route("questions.show", $question->id)}}" class="btn btn-sm btn-default">

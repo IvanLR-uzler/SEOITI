@@ -1,10 +1,10 @@
 <div class="form-group">
     {{ Form::label('context','Pregunta') }}
-    {{ Form::text('context',null, ['class' => 'form-control']) }}
+    {!! Form::text('context',null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
-        {{ Form::label('ansA', 'Respuesta A') }}
-        {{ Form::text('ansA',null, ['class' => 'form-control']) }}
+    {{ Form::label('ansA', 'Respuesta A') }}
+    {{ Form::text('ansA',null, ['class' => 'form-control']) }}
 </div>
 <div class="form-group">
     {{ Form::label('ansB', 'Respuesta B') }}
@@ -28,12 +28,12 @@
 </div>
 <div class="form-group">
     {{ Form::label('user_id', 'Usuario creador') }}
-    {{ Form::text('user_id',null, ['class' => 'form-control', 'name' => 'user_id']) }}
+    {!! Form::text('user_id', $user_id, ['class' => 'form-control', 'readonly' => 'readonly']) !!}
 </div>
 <hr>
 <h3>Listado de areas del conocimiento</h3>
 <div class="form-group">
-        {!! Form::select('knowledgementAreas', $knowledgementAreas, null, ['class' => 'custom-select', 'name' => 'know_id'] ) !!}
+        {!! Form::select('knowledgementAreas', ['Selecciona una opción', $knowledgementAreas], null, ['class' => 'custom-select', 'name' => 'know_id'] ) !!}
 </div>
 <div class="form-group">
         {{ Form::submit('Guardar', ['class' => 'btn btn-sm btn-primary']) }}
