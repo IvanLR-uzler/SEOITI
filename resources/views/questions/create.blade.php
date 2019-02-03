@@ -7,6 +7,7 @@
             <div class="card">
                 <div class="card-header">Pregunta</div>
                 <div class="card-body">
+                    @include('questions.partials.error')
                     {!! Form::open(['route' => 'questions.store']) !!}
                         @include('questions.partials.form')
                     {!! Form::close() !!}

@@ -6,6 +6,7 @@ use App\KnowledgementArea;
 use App\Question;
 use Illuminate\Http\Request;
 use App\User;
+use App\Http\Requests\QuestionRequest;
 
 class QuestionController extends Controller
 {
@@ -40,7 +41,7 @@ class QuestionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(QuestionRequest $request)
     {
         $question = Question::create($request->all());
         return redirect()->route('questions.edit', $question->id)
@@ -79,7 +80,7 @@ class QuestionController extends Controller
      * @param  \App\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Question $question)
+    public function update(QuestionRequest $request, Question $question)
     {
         $question->update($request->all());
         return redirect()->route('questions.edit', $question->id)

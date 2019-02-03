@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Examn;
 use Illuminate\Http\Request;
 use App\Question;
-use function GuzzleHttp\json_encode;
+use App\Http\Requests\ExamnRequest;
+use App\KnowledgementArea;
 
 class ExamnController extends Controller
 {
@@ -27,9 +28,10 @@ class ExamnController extends Controller
      */
     public function create()
     {
-        $user_id = auth()->user()->id;
+        $user = auth()->user();
         $questions = Question::get();
-        return view('examns.create', compact('questions','user_id'));
+        $knowledgementAreas = KnowledgementArea::get();
+        return view('examns.create', compact('questions','user','knowledgementAreas'));
     }
 
     /**
@@ -38,11 +40,11 @@ class ExamnController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ExamnRequest $request)
     {   
-        $examn = json_encode($request->input('questions'));
+        $examn=$request->input('correctAns');
         dd($examn);
-        $examns = Examn::create(correctAns($examn), user_id(auth()->user()->id));
+        //$examns = Examn::create($request->get('user_id'), $examn);
         return redirect()->route('examns.edit', $examns->id)
             ->with('info', 'Examen guardado con éxito');
     }
@@ -78,11 +80,11 @@ class ExamnController extends Controller
      * @param  \App\Examn  $examn
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Examn $examn)
+    public function update(ExamnRequest $request, Examn $examn)
     {
-        $questions=$request->input('questions[]');
-        $correcAns = Question::create(json_encode($questions));
-        $examn->update($request->all(), $correctAns);
+        /*$questions=$request->input('questions[]');
+        $correcAns = Question::create(json_encode($questions));*/
+        $examn->update($request->all());
         return redirect()->route('examns.edit', $examn->id)
         ->with('info', 'Examen actualizado');
     }

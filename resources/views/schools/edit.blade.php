@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">Escuela</div>
                     <div class="panel-body">
-
+                        @include('schools.partials.error')
                         {!! Form::model($school,['route' => ['schools.update', $school->id],
                         'method'=> 'PUT']) !!}
                         @include('schools.partials.form')

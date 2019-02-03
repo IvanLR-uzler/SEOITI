@@ -7,8 +7,9 @@
             <div class="card">
                 <div class="card-body">
                     <div>
-                        {!! Form::open(['examn' => 'examns.store']) !!}
-                            @include('examns.partials.form_questions')
+                        @include('examns.partials.error')
+                        {!! Form::open(['route' => 'examns.store']) !!}
+                            @include('examns.partials.form')
                         {!! Form::close() !!}
                     </div>
                 </div>

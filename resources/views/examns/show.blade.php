@@ -7,7 +7,9 @@
             <div class="card">
                 <div class="card-header">Examenes</div>
                 <div class="card-body">
-                    <p><strong>Fecha de creación</strong> {{ $examn->created_at }} </p>
+                    <p><strong>Fecha de creación:</strong> {{ $examn->created_at }} </p>
+                    <hr>
+                    <p><strong>Fecha de actualización:</strong> {{ $examn->updated_at }} </p>
                 </div>
             </div>
         </div>

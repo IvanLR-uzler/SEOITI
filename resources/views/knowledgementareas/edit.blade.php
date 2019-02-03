@@ -7,6 +7,7 @@
             <div class="card">
                 <div class="card-header">Area del conocimiento</div>
                 <div class="card-body">
+                    @include('knowledgementareas.partials.error')
                     {!! Form::model($knowledgementArea, ['route' => ['knowledgementareas.update', $knowledgementArea->id],
                     'method' => 'PUT']) !!}
                         @include('knowledgementareas.partials.form')

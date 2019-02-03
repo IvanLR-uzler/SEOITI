@@ -7,6 +7,7 @@
                 <div class="card">
                     <div class="card-header">Roles</div>
                     <div class="panel-body">
+                        @include('schools.partials.error')
                         {!! Form::open(['route'=> ['schools.store']])!!}
 
                         @include('schools.partials.form')

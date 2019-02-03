@@ -7,6 +7,7 @@
             <div class="card">
                 <div class="card-header">Area del conocimiento</div>
                 <div class="card-body">
+                    @include('knowledgementareas.partials.error')
                     {!! Form::open(['route' => 'knowledgementareas.store']) !!}
                         @include('knowledgementareas.partials.form')
                     {!! Form::close() !!}

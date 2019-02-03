@@ -28,7 +28,7 @@
                             @foreach($schools as $school)
                                 <tr>
                                     <td>{{ $school->id}}</td>
-                                    <td>{{ $school->nameSchool}}</td>
+                                    <td>{{ $school->name}}</td>
                                     <td width="10px">
                                         @can('schools.show')
                                             <a href="{{route('schools.show', $school->id)}}"

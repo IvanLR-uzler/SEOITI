@@ -7,6 +7,7 @@
             <div class="card">
                 <div class="card-header">Preguntas</div>
                 <div class="card-body">
+                    @include('questions.partials.error')
                     {!! Form::model($question, ['route' => ['questions.update', $question->id],
                     'method' => 'PUT']) !!}
                         @include('questions.partials.form')

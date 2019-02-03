@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\KnowledgementArea;
+use App\Http\Requests\KnowledgementAreaRequest;
 use Illuminate\Http\Request;
 
 class KnowledgementAreaController extends Controller
@@ -34,7 +35,7 @@ class KnowledgementAreaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(KnowledgementAreaRequest $request)
     {
         $knowledgementarea = KnowledgementArea::create($request->all());
         return redirect()->route('knowledgementareas.edit', $knowledgementarea->id)
@@ -71,7 +72,7 @@ class KnowledgementAreaController extends Controller
      * @param  \App\KnowledgementArea  $knowledgementArea
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, KnowledgementArea $knowledgementArea)
+    public function update(KnowledgementAreaRequest $request, KnowledgementArea $knowledgementArea)
     {
         $knowledgementArea->update($request->all());
         return redirect()->route('knowledgementareas.edit', $knowledgementArea->id)

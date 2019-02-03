@@ -7,6 +7,7 @@
             <div class="card">
                 <div class="card-header">Examenes</div>
                 <div class="card-body">
+                    @include('examns.partials.form')
                     {!! Form::model($examn, ['examn' => ['examns.update', $examn->id],
                     'method' => 'PUT']) !!}
                         @include('examns.partials.form')

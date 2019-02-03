@@ -63,6 +63,7 @@ Route::middleware(['auth'])->group(function(){
     Route::get('examns/{examn}','ExamnController@show')->name('examns.show')->middleware('permission:examns.show');
     Route::delete('examns/{examn}','ExamnController@destroy')->name('examns.destroy')->middleware('permission:examns.destroy');
     Route::get('examns/{examn}/edit','ExamnController@edit')->name('examns.edit')->middleware('permission:examns.edit');
+    
     //Question
     Route::post('questions/store', 'QuestionController@store')->name('questions.store')->middleware('permission:questions.create');
     Route::get('questions','QuestionController@index')->name('questions.index')->middleware('permission:questions.index');

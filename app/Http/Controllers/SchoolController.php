@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\School;
 use Illuminate\Http\Request;
+use App\Http\Requests\SchoolRequest;
 
 class SchoolController extends Controller
 {
@@ -34,11 +35,11 @@ class SchoolController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SchoolRequest $request)
     {
         $school = School::create($request->all());
         return redirect()->route('schools.edit', $school->id)
-            ->with('info', 'Datos de la School guardados guardado con éxito');
+            ->with('info', 'Datos de la escuela guardados guardado con éxito');
     }
 
     /**
@@ -70,9 +71,11 @@ class SchoolController extends Controller
      * @param  \App\School  $school
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, School $school)
+    public function update(SchoolRequest $request, School $school)
     {
-        return view('schools.edit',compact('school'));
+        $school->update($request->all());
+        return redirect()->route('schools.edit', $school->id)
+            ->with('info', 'Escuela actualizada');
     }
 
     /**
