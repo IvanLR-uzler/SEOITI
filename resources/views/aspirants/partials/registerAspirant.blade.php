@@ -57,7 +57,7 @@
 <div class="form-group row">
     <label for="apm" class="col-md-4 col-form-label text-md-right">{{ __('Sexo') }}</label>
     <div class="col-md-6">
-        <input id="genere" type="text" class="form-control{{ $errors->has('genre') ? ' is-invalid' : '' }}" name="genre"
+        <input id="genre" type="text" class="form-control{{ $errors->has('genre') ? ' is-invalid' : '' }}" name="genre"
                value="{{ old('genre') }}" required autofocus>
         @if ($errors->has('genre'))
             <span class="invalid-feedback" role="alert">
@@ -114,14 +114,12 @@
             <strong>{{ $errors->first('email') }}</strong>
         </span>@endif</div>
 </div>
+
 <div class="form-group row">
-
     <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
-
     <div class="col-md-6">
         <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
                name="password" required>
-
         @if ($errors->has('password'))
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $errors->first('password') }}</strong>
@@ -137,12 +135,9 @@
     </div>
 </div>
 
-<div class="form-group row mb-0">
-    <div class="col-md-6 offset-md-4">
-        <button type="submit" class="btn btn-primary">
-            {{ __('Registrar') }}
-        </button>
-    </div>
+
+<div class="form-group">
+    {{ Form::submit('Guardar', ['class' => 'btn btn-sm btn-primary']) }}
 </div>
 
 

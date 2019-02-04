@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "76d55244939b33889c62e029a7f44557",
+    "content-hash": "8854aa3d14bcc0bc57a1c3cf8b815d76",
     "packages": [
         {
             "name": "caffeinated/shinobi",

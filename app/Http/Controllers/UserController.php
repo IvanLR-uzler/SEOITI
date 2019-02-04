@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Caffeinated\Shinobi\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class UserController extends Controller
 {
@@ -18,12 +19,13 @@ class UserController extends Controller
         $users = User::paginate();
         return view('users.index', compact('users'));
     }
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
        $roles= Role::get();
         return view('users.create', compact('roles'));
@@ -36,9 +38,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = User::create($request->all());
+       $data = request()->all();
+
+        $user = User::create([
+            'name'=> $data['name'],
+            'app'=> $data['app'],
+            'apm'=> $data['apm'],
+            'email'=> $data['email'],
+            'password' => bcrypt($data['password'])
+        ]);
+
         return redirect()->route('users.edit', $user->id)
             ->with('info', 'Usuario guardado con éxito');
+
     }
 
     /**
@@ -92,4 +104,9 @@ class UserController extends Controller
         $user->delete();
         return back()->with('info','Eliminado correctamente');
     }
+
+    //function saveEncryptionPassword(Request $request)
+    //{
+    //    $encryption = new Encryp
+    //}
 }

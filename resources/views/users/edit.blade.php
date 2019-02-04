@@ -8,8 +8,8 @@
                 <div class="card-header">Usuarios</div>
                 <div class="card-body">
                     {!! Form::model($user, ['route' => ['users.update', $user->id],
-                    'method' => 'PUT']) !!}
-                        @include('users.partials.form')
+                     'method' => 'PUT']) !!}
+                    @include('users.partials.form')
                     {!! Form::close() !!}
                 </div>
             </div>

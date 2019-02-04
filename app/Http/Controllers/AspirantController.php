@@ -86,6 +86,7 @@ class AspirantController extends Controller
      */
     public function destroy(Aspirant $aspirant)
     {
-
+        $aspirant->delete();
+        return back()->with('info','Eliminado correctamente');
     }
 }

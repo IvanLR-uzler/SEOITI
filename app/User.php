@@ -3,9 +3,12 @@
 namespace App;
 
 use Caffeinated\Shinobi\Traits\ShinobiTrait;
+
+use http\Env\Request;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Crypt;
 
 class User extends Authenticatable
 {
@@ -16,6 +19,7 @@ class User extends Authenticatable
      *
      * @var array
      */
+
     protected $fillable = [
         'name', 'app', 'apm', 'email', 'password',
     ];
