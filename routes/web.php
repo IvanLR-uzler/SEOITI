@@ -16,16 +16,26 @@ Route::get('/', function () {
 });
 
 Route::get('/help', 'UserController@help')->name('help');
-
 Route::get('/comments', 'UserController@comments')->name('comments');
-
 Route::get('/preregister', 'UserController@preregister')->name('preregister');
+
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//Routes
+// Authentication Routes...
+$this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
+$this->post('login', 'Auth\LoginController@login');
+$this->post('logout', 'Auth\LoginController@logout')->name('logout');
+
+// Registration Routes...
+if ($options['register'] ?? true) {
+    $this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+    $this->post('register', 'Auth\RegisterController@register');
+}
+
+
 Route::middleware(['auth'])->group(function(){
     //Roles
     //Route::get('/register', 'HomeController@index')->name('home');
@@ -76,6 +86,10 @@ Route::middleware(['auth'])->group(function(){
     Route::post('aspirants/store', 'AspirantController@store')->name('aspirants.store')->middleware('permission:aspirants.create');
     Route::get('aspirants','AspirantController@index')->name('aspirants.index')->middleware('permission:aspirants.index');
     Route::get('aspirants/create','AspirantController@create')->name('aspirants.create')->middleware('permission:aspirants.create');
+
+    //Route::get('aspirants/register','AspirantController@create')->name('aspirants.create')->middleware('permission:aspirants.create');
+
+
     Route::put('aspirants/{aspirant}','AspirantController@update')->name('aspirants.update')->middleware('permission:aspirants.edit');
     Route::get('aspirants/{aspirant}','AspirantController@show')->name('aspirants.show')->middleware('permission:aspirants.show');
     Route::delete('aspirants/{aspirant}','AspirantController@destroy')->name('aspirants.destroy')->middleware('permission:aspirants.destroy');

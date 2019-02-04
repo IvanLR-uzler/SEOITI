@@ -24,6 +24,7 @@ class CreateAspirantsTable extends Migration
             $table->string('email');
             $table->date('bornDate');
             $table->string('cellphone');
+            $table->string('password');
             $table->integer('totalReactives')->nullable();
             $table->json('answersExamn')->nullable();
             $table->unsignedInteger('school_id')->nullable();
@@ -34,6 +35,7 @@ class CreateAspirantsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedInteger('knowArea_id')->nullable();
             $table->foreign('knowArea_id')->references('id')->on('knowledgement_areas')->onDelete('cascade');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
