@@ -31,7 +31,8 @@ class ExamnController extends Controller
         $user = auth()->user();
         $questions = Question::get();
         $knowledgementAreas = KnowledgementArea::get();
-        return view('examns.create', compact('questions','user','knowledgementAreas'));
+        $knowGenerals = Question::where('know_id', '=', '1')->get();
+        return view('examns.create', compact('questions','user','knowledgementAreas','knowGenerals'));
     }
 
     /**

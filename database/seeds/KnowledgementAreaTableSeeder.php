@@ -12,6 +12,11 @@ class KnowledgementAreaTableSeeder extends Seeder
     public function run()
     {
         \App\KnowledgementArea::create([
+            'name'=>'General',
+            'description'=>'Tópicos generales del examen (Matemáticas y Español)'
+        ]);
+
+        \App\KnowledgementArea::create([
             'name'=>'informatica',
             'description'=>'Todo Sobre informatica'
         ]);

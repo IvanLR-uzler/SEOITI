@@ -20,12 +20,12 @@
         <hr>
         <div class="form-group">
         <ul class="list-unstyled">
-                @foreach ($questions as $question)
+                @foreach ($knowGenerals as $knowGeneral)
                         <li>
                                 <label>
-                                        {{ Form::checkbox('correctAns[]', "$question->id:$question->correctAns", null) }}
-                                        {{ $question->context }}
-                                        <em> - Reactivos ({{ $question->reactive ?: 'N/A' }})</em>
+                                        {{ Form::checkbox('correctAns[]', "$knowGeneral->id:$knowGeneral->correctAns", null) }}
+                                        {{ $knowGeneral->context }}
+                                        <em> - Reactivos ({{ $knowGeneral->reactive ?: 'N/A' }})</em>
                                 </label>
                         </li>
                 @endforeach
