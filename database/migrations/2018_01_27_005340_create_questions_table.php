@@ -22,9 +22,9 @@ class CreateQuestionsTable extends Migration
             $table->string('ansD');
             $table->char('correctAns',1);
             $table->integer('reactive');
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->unsignedInteger('know_id');
+            $table->unsignedInteger('know_id')->nullable();
             $table->foreign('know_id')->references('id')->on('knowledgement_areas')->onDelete('cascade');
             $table->timestamps();
         });

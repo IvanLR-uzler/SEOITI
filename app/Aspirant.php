@@ -19,7 +19,7 @@ class Aspirant extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'app', 'apm','password','age','genre','direction','email','bornDate','cellphone','totalReactives','answersExamn',
+        'name', 'app', 'apm','age','genre','direction','email','bornDate','cellphone','password','totalReactives','answersExamn',
     ];
 
     /**

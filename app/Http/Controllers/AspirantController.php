@@ -37,7 +37,19 @@ class AspirantController extends Controller
      */
     public function store(Request $request)
     {
-        $aspirant = Aspirant::create($request->all());
+        $data = request()->all();
+        $aspirant = Aspirant::create([
+            'name'=> $data['name'],
+            'app'=> $data['app'],
+            'apm'=> $data['apm'],
+            'age'=> $data['age'],
+            'genre'=> $data['age'],
+            'direction'=> $data['direction'],
+            'bornDate'=> $data['bornDate'],
+            'cellphone'=> $data['cellphone'],
+            'email'=> $data['email'],
+            'password' => bcrypt($data['password'])
+        ]);
         return redirect()->route('aspirants.edit', $aspirant->id)
             ->with('info', 'Usuario guardada con éxito');
     }
@@ -86,6 +98,7 @@ class AspirantController extends Controller
      */
     public function destroy(Aspirant $aspirant)
     {
-
+        $aspirant->delete();
+        return back()->with('info','Eliminado correctamente');
     }
 }

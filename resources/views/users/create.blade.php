@@ -8,6 +8,7 @@
                 <div class="card-header">Usuarios</div>
                 <div class="card-body">
                     {!! Form::open(['route' => 'users.store']) !!}
+
                         @include('users.partials.form')
                     {!! Form::close() !!}
                 </div>

@@ -5,10 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Usuarios</div>
+                <div class="card-header">Aspiranes</div>
                 <div class="card-body">
                     {!! Form::open(['route' => 'aspirants.store']) !!}
-                        @include('aspirants.partials.form')
+                        @include('aspirants.partials.registerAspirant')
                     {!! Form::close() !!}
                 </div>
             </div>

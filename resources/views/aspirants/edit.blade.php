@@ -7,9 +7,9 @@
             <div class="card">
                 <div class="card-header">Usuarios</div>
                 <div class="card-body">
-                    {!! Form::model($user, ['route' => ['users.update', $user->id],
-                     'method' => 'PUT']) !!}
-                    @include('users.partials.form')
+                    {!! Form::model($aspirant, ['route' => ['aspirants.update', $aspirant->id],
+                    'method' => 'PUT']) !!}
+                        @include('aspirants.partials.form')
                     {!! Form::close() !!}
                 </div>
             </div>

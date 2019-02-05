@@ -11,6 +11,9 @@ class KnowledgementAreaTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\KnowledgementArea::class,15)->create();
+        \App\KnowledgementArea::create([
+            'name'=>'informatica',
+            'description'=>'Todo Sobre informatica'
+        ]);
     }
 }
