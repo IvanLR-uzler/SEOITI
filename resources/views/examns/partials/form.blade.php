@@ -23,7 +23,7 @@
                 @foreach ($knowGenerals as $knowGeneral)
                         <li>
                                 <label>
-                                        {{ Form::checkbox('correctAns[]', "$knowGeneral->id:$knowGeneral->correctAns", null) }}
+                                        {{ Form::checkbox('correctAns[]', $knowGeneral->id, null) }}
                                         {{ $knowGeneral->context }}
                                         <em> - Reactivos ({{ $knowGeneral->reactive ?: 'N/A' }})</em>
                                 </label>
@@ -48,7 +48,7 @@
                         @foreach ($questions as $question)
                                 <li>
                                         <label>
-                                                {{ Form::checkbox('correctAns[]', "$question->id:$question->correctAns", null) }}
+                                                {{ Form::checkbox('correctAns[]', $question->id, null) }}
                                                 {{ $question->context }}
                                                 <em> - Reactivos ({{ $question->reactive ?: 'N/A' }})</em>
                                         </label>
