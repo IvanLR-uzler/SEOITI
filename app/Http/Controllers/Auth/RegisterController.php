@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Aspirant;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -52,6 +53,11 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'app' => ['required', 'string', 'max:255'],
             'apm' => ['required', 'string', 'max:255'],
+            //'age'=> ['required', 'string', 'max:255'],
+            //'genre'=> ['required', 'string', 'max:255'],
+           // 'direction'=> ['required', 'string', 'max:255'],
+            //'bornDate'=> ['required', 'string', 'max:255'],
+           // 'cellphone'=> ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
@@ -71,6 +77,17 @@ class RegisterController extends Controller
             'apm' => $data['apm'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+
+            //'name'=> $data['name'],
+            //'app'=> $data['app'],
+            //'apm'=> $data['apm'],
+            //'age'=> $data['age'],
+            //'genre'=> $data['age'],
+            //'direction'=> $data['direction'],
+            //'bornDate'=> $data['bornDate'],
+            //'cellphone'=> $data['cellphone'],
+            //'email'=> $data['email'],
+            //'password' => bcrypt($data['password'])
         ]);
     }
 }

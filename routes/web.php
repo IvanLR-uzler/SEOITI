@@ -27,14 +27,14 @@ Router::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Registration Routes...
 
-    Router::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-    Router::post('register', 'Auth\RegisterController@register');
+Router::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Router::post('register', 'Auth\RegisterController@register');
 
 // Password Reset Routes..
-    Router::resetPassword();
+Router::resetPassword();
 
 // Email Verification Routes...
-    Router::emailVerification();
+Router::emailVerification();
 
 
 Route::get('/home', 'HomeController@index')->name('home');

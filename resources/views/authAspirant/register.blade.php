@@ -53,10 +53,10 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="apm" class="col-md-4 col-form-label text-md-right">{{ __('Edad') }}</label>
+                            <label for="age" class="col-md-4 col-form-label text-md-right">{{ __('Edad') }}</label>
 
                             <div class="col-md-6">
-                                <input id="apm" type="text" class="form-control{{ $errors->has('age') ? ' is-invalid' : '' }}" name="apm" value="{{ old('age') }}" required autofocus>
+                                <input id="age" type="text" class="form-control{{ $errors->has('age') ? ' is-invalid' : '' }}" name="age" value="{{ old('age') }}" required autofocus>
 
                                 @if ($errors->has('age'))
                                     <span class="invalid-feedback" role="alert">
@@ -67,10 +67,10 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="apm" class="col-md-4 col-form-label text-md-right">{{ __('Sexo') }}</label>
+                            <label for="genre" class="col-md-4 col-form-label text-md-right">{{ __('Sexo') }}</label>
 
                             <div class="col-md-6">
-                                <input id="apm" type="text" class="form-control{{ $errors->has('genre') ? ' is-invalid' : '' }}" name="genre" value="{{ old('genre') }}" required autofocus>
+                                <input id="genre" type="text" class="form-control{{ $errors->has('genre') ? ' is-invalid' : '' }}" name="genre" value="{{ old('genre') }}" required autofocus>
 
                                 @if ($errors->has('genre'))
                                     <span class="invalid-feedback" role="alert">
@@ -81,10 +81,10 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="apm" class="col-md-4 col-form-label text-md-right">{{ __('Direccion') }}</label>
+                            <label for="direction" class="col-md-4 col-form-label text-md-right">{{ __('Direccion') }}</label>
 
                             <div class="col-md-6">
-                                <input id="apm" type="text" class="form-control{{ $errors->has('direction') ? ' is-invalid' : '' }}" name="direction" value="{{ old('direction') }}" required autofocus>
+                                <input id="direction type="text" class="form-control{{ $errors->has('direction') ? ' is-invalid' : '' }}" name="direction" value="{{ old('direction') }}" required autofocus>
 
                                 @if ($errors->has('direction'))
                                     <span class="invalid-feedback" role="alert">
@@ -94,10 +94,10 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="apm" class="col-md-4 col-form-label text-md-right">{{ __('Fecha de naciemiento') }}</label>
+                            <label for="bornDate" class="col-md-4 col-form-label text-md-right">{{ __('Fecha de naciemiento') }}</label>
 
                             <div class="col-md-6">
-                                <input id="apm" type="text" class="form-control{{ $errors->has('bornDate') ? ' is-invalid' : '' }}" name="bornDate" value="{{ old('bornDate') }}" required autofocus>
+                                <input id="bornDate" type="text" class="form-control{{ $errors->has('bornDate') ? ' is-invalid' : '' }}" name="bornDate" value="{{ old('bornDate') }}" required autofocus>
 
                                 @if ($errors->has('bornDate'))
                                     <span class="invalid-feedback" role="alert">
@@ -107,10 +107,10 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="apm" class="col-md-4 col-form-label text-md-right">{{ __('Numero Telefonico') }}</label>
+                            <label for="cellphone" class="col-md-4 col-form-label text-md-right">{{ __('Numero Telefonico') }}</label>
 
                             <div class="col-md-6">
-                                <input id="apm" type="text" class="form-control{{ $errors->has('cellphone') ? ' is-invalid' : '' }}" name="cellphone" value="{{ old('cellphone') }}" required autofocus>
+                                <input id="cellphone" type="text" class="form-control{{ $errors->has('cellphone') ? ' is-invalid' : '' }}" name="cellphone" value="{{ old('cellphone') }}" required autofocus>
 
                                 @if ($errors->has('cellphone'))
                                     <span class="invalid-feedback" role="alert">
