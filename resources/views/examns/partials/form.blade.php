@@ -1,11 +1,11 @@
 <div class="float-left col-md-2">
         <div class="form-group">
                 <strong>{{ Form::label('created','Fecha de creación:') }}</strong>
-                <em>{{ Form::label('created',$user->created_at ?: 'Sin asignar') }}</em>
+                <em>{{ Form::label('created', 'Sin asignar') }}</em>
         </div>
         <div class="form-group">
                 <strong>{{ Form::label('updated','Fecha de actualización:') }}</strong>
-                <em>{{ Form::label('updated',$user->updated_at ?: 'Sin asignar') }}</em>
+                <em>{{ Form::label('updated', 'Sin asignar') }}</em>
         </div>
         <div class="form-group">
             <strong>{{ Form::label('user_id','ID Usuario creador:') }}</strong>

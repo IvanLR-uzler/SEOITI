@@ -42,9 +42,8 @@ class ExamnController extends Controller
      */
     public function store(ExamnRequest $request)
     {   
-        $examn=$request->input('correctAns');
-        dd($examn);
-        //$examns = Examn::create($request->get('user_id'), $examn);
+        $examn=json_encode($request->get('correctAns'));
+        $examns = Examn::create(['correctAns'=>$examn, 'user_id'=>$request->get('user_id')]);
         return redirect()->route('examns.edit', $examns->id)
             ->with('info', 'Examen guardado con éxito');
     }
@@ -69,8 +68,10 @@ class ExamnController extends Controller
      */
     public function edit(Examn $examn)
     {
+        $user = auth()->user();
+        $knowledgementAreas = KnowledgementArea::get();
         $questions=Question::get();
-        return view('examns.edit',compact('examn', 'questions'));
+        return view('examns.edit',compact('examn', 'questions','user','knowledgementAreas'));
     }
 
     /**
@@ -82,9 +83,8 @@ class ExamnController extends Controller
      */
     public function update(ExamnRequest $request, Examn $examn)
     {
-        /*$questions=$request->input('questions[]');
-        $correcAns = Question::create(json_encode($questions));*/
-        $examn->update($request->all());
+        $examn=json_encode($request->get('correctAns'));
+        $examns = Examn::update(['correctAns'=>$examn]);
         return redirect()->route('examns.edit', $examn->id)
         ->with('info', 'Examen actualizado');
     }
