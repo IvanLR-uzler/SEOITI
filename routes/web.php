@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Routing\Router;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,21 +20,25 @@ Route::get('/help', 'UserController@help')->name('help');
 Route::get('/comments', 'UserController@comments')->name('comments');
 Route::get('/preregister', 'UserController@preregister')->name('preregister');
 
+// Authentication Routes...
+Router::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Router::post('login', 'Auth\LoginController@login');
+Router::post('logout', 'Auth\LoginController@logout')->name('logout');
 
-Auth::routes();
+// Registration Routes...
+
+    Router::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+    Router::post('register', 'Auth\RegisterController@register');
+
+// Password Reset Routes..
+    Router::resetPassword();
+
+// Email Verification Routes...
+    Router::emailVerification();
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Authentication Routes...
-$this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
-$this->post('login', 'Auth\LoginController@login');
-$this->post('logout', 'Auth\LoginController@logout')->name('logout');
-
-// Registration Routes...
-if ($options['register'] ?? true) {
-    $this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-    $this->post('register', 'Auth\RegisterController@register');
-}
 
 
 Route::middleware(['auth'])->group(function(){

@@ -47,7 +47,6 @@ class UserController extends Controller
             'email'=> $data['email'],
             'password' => bcrypt($data['password'])
         ]);
-
         return redirect()->route('users.edit', $user->id)
             ->with('info', 'Usuario guardado con éxito');
 
