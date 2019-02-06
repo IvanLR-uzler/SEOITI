@@ -25,16 +25,15 @@ Router::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Router::post('login', 'Auth\LoginController@login');
 Router::post('logout', 'Auth\LoginController@logout')->name('logout');
 
-// Registration Routes...
+// rutas aspirant...
+Router::get('aspirant/login', 'Aspirant\LoginController@showLoginForm')->name('aspirant.login');
+Router::post('aspirant/login', 'Aspirant\LoginController@login');
+Router::post('aspirant/logout', 'Aspirant\LoginController@logout')->name('aspirant.logout');
 
 Router::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Router::post('register', 'Auth\RegisterController@register');
 
-// Password Reset Routes..
-Router::resetPassword();
 
-// Email Verification Routes...
-Router::emailVerification();
 
 
 Route::get('/home', 'HomeController@index')->name('home');
