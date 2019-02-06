@@ -15,7 +15,7 @@
                                     <p>Para comenzar puedes darle click a la opción "Ayuda", el cual te dará instrucciones de como realizar tu examen.</p>
                                     <p>O darle a "Realizar Examen" para comenzar.</p>
                                     <br><br>
-                                    <a class="btn btn-primary" href="{{ route('login') }}">{{ __('Realizar Examen') }}</a>
+                                    <a class="btn btn-primary" href="{{ route('aspirant.login') }}">{{ __('Realizar Examen') }}</a>
                                 </div>
                             @else 
                             <div class="card-body">
