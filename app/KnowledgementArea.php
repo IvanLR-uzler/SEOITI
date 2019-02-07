@@ -15,4 +15,8 @@ class KnowledgementArea extends Model
         'name', 'description',
     ];
 
+    public function questions(){
+        return $this->hasMany('App\Question', 'knowledgement_area_id','id');
+    }
+
 }

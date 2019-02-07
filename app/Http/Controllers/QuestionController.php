@@ -30,9 +30,8 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        $user_id = auth()->user()->id;
         $knowledgementAreas = KnowledgementArea::get();
-        return view('questions.create', compact('knowledgementAreas', 'user_id'));
+        return view('questions.create', compact('knowledgementAreas'));
     }
 
     /**

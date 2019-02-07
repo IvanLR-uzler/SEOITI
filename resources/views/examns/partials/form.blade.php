@@ -1,11 +1,11 @@
 <div class="float-left col-md-2">
         <div class="form-group">
                 <strong>{{ Form::label('created','Fecha de creación:') }}</strong>
-                <em>{{ Form::label('created', 'Sin asignar') }}</em>
+                <em>{{ Form::label('created', $examn->created_at ?: 'Sin asignar') }}</em>
         </div>
         <div class="form-group">
                 <strong>{{ Form::label('updated','Fecha de actualización:') }}</strong>
-                <em>{{ Form::label('updated', 'Sin asignar') }}</em>
+                <em>{{ Form::label('updated', $examn->updated_at) ?: 'Sin asignar'}}</em>
         </div>
         <div class="form-group">
             <strong>{{ Form::label('user_id','ID Usuario creador:') }}</strong>
@@ -23,7 +23,7 @@
                 @foreach ($knowGenerals as $knowGeneral)
                         <li>
                                 <label>
-                                        {{ Form::checkbox('correctAns[]', $knowGeneral->id, null) }}
+                                        {{ Form::checkbox('questions[]', $knowGeneral->id, null) }}
                                         {{ $knowGeneral->context }}
                                         <em> - Reactivos ({{ $knowGeneral->reactive ?: 'N/A' }})</em>
                                 </label>
@@ -48,7 +48,7 @@
                         @foreach ($questions as $question)
                                 <li>
                                         <label>
-                                                {{ Form::checkbox('correctAns[]', $question->id, null) }}
+                                                {{ Form::checkbox('questions[]', $question->id, null) }}
                                                 {{ $question->context }}
                                                 <em> - Reactivos ({{ $question->reactive ?: 'N/A' }})</em>
                                         </label>

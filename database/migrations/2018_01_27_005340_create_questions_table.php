@@ -24,8 +24,8 @@ class CreateQuestionsTable extends Migration
             $table->integer('reactive');
             $table->unsignedInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->unsignedInteger('know_id')->nullable();
-            $table->foreign('know_id')->references('id')->on('knowledgement_areas')->onDelete('cascade');
+            $table->unsignedInteger('knowledgement_area_id')->nullable();
+            $table->foreign('knowledgement_area_id')->references('id')->on('knowledgement_areas')->onDelete('cascade');
             $table->timestamps();
         });
     }

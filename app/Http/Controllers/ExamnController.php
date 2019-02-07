@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Examn;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 use App\Question;
 use App\Http\Requests\ExamnRequest;
 use App\KnowledgementArea;
@@ -29,10 +29,11 @@ class ExamnController extends Controller
     public function create()
     {
         $user = auth()->user();
-        $questions = Question::get();
-        $knowledgementAreas = KnowledgementArea::get();
+        $examn = '';
+        $questions = Question::where('know_id', '<>', '1')->get();
+        $knowledgementAreas = KnowledgementArea::where('id', '<>', '1')->get();
         $knowGenerals = Question::where('know_id', '=', '1')->get();
-        return view('examns.create', compact('questions','user','knowledgementAreas','knowGenerals'));
+        return view('examns.create', compact('questions','user','knowledgementAreas','knowGenerals', 'examn'));
     }
 
     /**
@@ -43,9 +44,8 @@ class ExamnController extends Controller
      */
     public function store(ExamnRequest $request)
     {   
-        $examn=json_encode($request->get('correctAns'));
-        $examns = Examn::create(['correctAns'=>$examn, 'user_id'=>$request->get('user_id')]);
-        return redirect()->route('examns.edit', $examns->id)
+        $examn = Examn::create($request->all());
+        return redirect()->route('examns.edit', $examn->id)
             ->with('info', 'Examen guardado con éxito');
     }
 
@@ -69,10 +69,12 @@ class ExamnController extends Controller
      */
     public function edit(Examn $examn)
     {
+        $examn=$examn;
         $user = auth()->user();
         $knowledgementAreas = KnowledgementArea::get();
-        $questions=Question::get();
-        return view('examns.edit',compact('examn', 'questions','user','knowledgementAreas'));
+        $questions = Question::get();
+        $knowGenerals = Question::get();
+        return view('examns.edit',compact('examn', 'questions','user','knowledgementAreas','knowGenerals'));
     }
 
     /**
@@ -84,8 +86,8 @@ class ExamnController extends Controller
      */
     public function update(ExamnRequest $request, Examn $examn)
     {
-        $examn=json_encode($request->get('correctAns'));
-        $examns = Examn::update(['correctAns'=>$examn]);
+        $examn->update($request->all());
+        $examn->questions()->attach($request->get('question'));
         return redirect()->route('examns.edit', $examn->id)
         ->with('info', 'Examen actualizado');
     }

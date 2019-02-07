@@ -24,7 +24,7 @@ class ExamnRequest extends FormRequest
     public function rules()
     {
         return [
-            'correctAns' => 'required',
+            'questions' => 'required',
             'user_id' => 'required'
         ];
     }
