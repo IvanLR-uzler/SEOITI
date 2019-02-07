@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Caffeinated\Shinobi\Models\Role;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -45,7 +45,7 @@ class UserController extends Controller
             'app'=> $data['app'],
             'apm'=> $data['apm'],
             'email'=> $data['email'],
-            'password' => bcrypt($data['password'])
+            'password' => Hash::make($data['password']),
         ]);
         return redirect()->route('users.edit', $user->id)
             ->with('info', 'Usuario guardado con éxito');

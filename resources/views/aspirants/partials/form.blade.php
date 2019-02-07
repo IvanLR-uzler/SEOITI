@@ -16,7 +16,7 @@
 </div>
 <div class="form-group">
     {{ Form::label('genre', 'Sexo') }}
-    {{ Form::text('genere',null, ['class' => 'form-control']) }}
+    {{ Form::text('genre',null, ['class' => 'form-control']) }}
 </div>
 <div class="form-group">
     {{ Form::label('direction', 'Direccion') }}

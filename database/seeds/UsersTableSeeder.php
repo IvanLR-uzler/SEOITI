@@ -12,19 +12,26 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+
         Role::create([
             'name' => 'Admin',
             'slug' => 'admin',
-            'special' =>'all-access'
-
+            'special' =>'all-access',
         ]);
+
+        //Role::create([
+        //    'name' => 'Aspirant',
+        //    'slug' => 'aspirant',
+        //    'special' =>'no-access',
+        //    //'aspirant_id'=>2
+        //]);
 
         \App\User::create([
             'name'=> 'Ivan',
             'app'=> 'Leon',
             'apm'=> 'Robles',
             'email'=> 'ejemplo@gmail.com',
-            'password'=>bcrypt('123456'),
+            'password'=>bcrypt('ejemplo123'),
 
         ]);
 
@@ -36,6 +43,6 @@ class UsersTableSeeder extends Seeder
             'password'=> bcrypt('ejemplo')
         ]);
 
-        factory(App\User::class,20)->create();
+        //factory(App\User::class,20)->create();
     }
 }

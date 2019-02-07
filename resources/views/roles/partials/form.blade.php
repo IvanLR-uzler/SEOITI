@@ -14,8 +14,11 @@
 
 <h3>Lista de roles</h3>
 <div class="form-group">
-    <label> {{ Form::radio('special', 'all-access')}} Acceso total</label>
-    <label> {{ Form::radio('special', 'no-access')}} Ningun acceso</label>
+    <label >{{ Form::checkbox('especial[]', value('all-access')) }} Acceso total</label>
+    <label >{{ Form::checkbox('especial[]', value('no-access')) }} Ningun Acceso</label>
+
+    {{--<label> {{ Form::radio('special', 'all-access')}} Acceso total</label>--}}
+    {{--<label> {{ Form::radio('special', 'no-access')}} Ningun acceso</label>--}}
 </div>
 <hr>
 <h3>Lista de permisos</h3>

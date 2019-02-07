@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Aspirant;
 use Caffeinated\Shinobi\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AspirantController extends Controller
 {
@@ -48,10 +49,10 @@ class AspirantController extends Controller
             'bornDate'=> $data['bornDate'],
             'cellphone'=> $data['cellphone'],
             'email'=> $data['email'],
-            'password' => bcrypt($data['password'])
+            'password' => Hash::make($data['password']),
         ]);
         return redirect()->route('aspirants.edit', $aspirant->id)
-            ->with('info', 'Usuario guardada con éxito');
+            ->with('info', 'ASpirante guardado con éxito');
     }
 
     /**

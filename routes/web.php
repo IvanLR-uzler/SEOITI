@@ -30,13 +30,13 @@ Router::get('aspirant/login', 'Aspirant\LoginController@showLoginForm')->name('a
 Router::post('aspirant/login', 'Aspirant\LoginController@login');
 Router::post('aspirant/logout', 'Aspirant\LoginController@logout')->name('aspirant.logout');
 
-Router::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-Router::post('register', 'Auth\RegisterController@register');
+Router::get('register', 'Aspirant\RegisterController@showRegistrationForm')->name('register');
+Router::post('register', 'Aspirant\RegisterController@register');
 
 
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth:web,aspirant');
 
 
 
