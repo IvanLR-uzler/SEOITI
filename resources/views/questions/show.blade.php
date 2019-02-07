@@ -13,8 +13,12 @@
                     <p><strong>Respuesta C:</strong> {{ $question->ansC }} </p>
                     <p><strong>Respuesta D:</strong> {{ $question->ansD }} </p>
                     <p><strong>Respuesta correcta:</strong> {{ $question->correctAns }} </p>
-                    <p><strong>Reactivo:</strong> {{ $question->reactive }} </p>
-                    <p><strong>Area del conocimiento:</strong> {{ $question->know_id }} </p>
+                    <p><strong>Reactivo:</strong> {{ $question->reactive }}
+                    <p><strong>Area del conocimiento:</strong> 
+                        @foreach ($know_name as $know)
+                            {{ $know->name }}
+                        @endforeach
+                    </p>
                     <p><strong>Usuario creador:</strong> {{ $user_name }} </p>
                 </div>
             </div>

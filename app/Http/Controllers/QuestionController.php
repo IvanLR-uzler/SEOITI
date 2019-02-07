@@ -57,7 +57,9 @@ class QuestionController extends Controller
     public function show(Question $question)
     {
         $user_name = auth()->user()->email;
-        return view('questions.show', compact('question','user_name'));
+        $know_name=KnowledgementArea::where('id', '=', $question->know_id)->get();
+        //dd($know_name);
+        return view('questions.show', compact('question','user_name','know_name'));
     }
 
     /**
