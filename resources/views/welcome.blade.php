@@ -1,118 +1,33 @@
-<<<<<<< HEAD
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
-=======
-@extends('layouts.app')
+@extends('layouts.original')
 
 @section('content')
-        <div class="flex-center position-ref full-height">
-                <div class="content">
-                    <div class="title">
-                        SEOITI
+<br>
+        <div class="container">
+                <div class="justify-content-center">
+                    <div class="col-md-12">
+                        <div class="card text-center">
+                            <div class="h1" style="margin-top:20px">
+                                SEOITI
+                            </div>
+                            @guest
+                                <div class="card-body">
+                                    <h3>Bienvenido al sistema de examenes online</h3>
+                                    <p>Para comenzar puedes darle click a la opción "Ayuda", el cual te dará instrucciones de como realizar tu examen.</p>
+                                    <p>O darle a "Realizar Examen" para comenzar.</p>
+                                    <br><br>
+                                    <a class="btn btn-primary" href="{{ route('aspirant.login') }}">{{ __('Realizar Examen') }}</a>
+                                </div>
+                            @else 
+                            <div class="card-body">
+                                <h3>Bienvenido al sistema de examenes online</h3>
+                                <p>Puedes realizar tus actividades correspondientes a tu rol.</p>
+                                <p>Se te ha designado un menú específico en la parte superior.</p>
+                                <br><br>
+                                <p><strong>Cualquier duda, será necesario contactar al administrador del sistema.</strong></p>
+                            </div>                              
+                            @endguest
+                        </div>
                     </div>
-                    <h3>Bienvenido al sistema de examenes online</h3>
-                    <p>Para comenzar puedes darle click a la opción "Ayuda", el cual te dará instrucciones de como realizar tu examen.</p>
-                    <p>O darle a "Realizar Examen" para comenzar.</p>
-                    <br><br><br><br>
-                    <a href="#" class="exam">Realizar Examen</a>
                 </div>
         </div>
 @endsection
->>>>>>> Creación de las rutas, vistas, auth, app.blade como plantilla y migrates

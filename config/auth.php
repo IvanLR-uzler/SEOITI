@@ -41,10 +41,15 @@ return [
             'provider' => 'users',
         ],
 
-        'api' => [
-            'driver' => 'token',
-            'provider' => 'users',
+        'aspirant' => [
+            'driver' => 'session',
+            'provider' => 'aspirants',
         ],
+
+        //'api' => [
+        //    'driver' => 'token',
+        //    'provider' => 'users',
+        //],
     ],
 
     /*
@@ -69,6 +74,11 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
+
+            'aspirants' => [
+                'driver' => 'eloquent',
+                'model' => App\Aspirant::class,
+                ],
 
         // 'users' => [
         //     'driver' => 'database',

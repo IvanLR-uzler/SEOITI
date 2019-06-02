@@ -2,21 +2,26 @@
 
 namespace App;
 
+use Caffeinated\Shinobi\Traits\ShinobiTrait;
+
+use http\Env\Request;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Crypt;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, ShinobiTrait;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
+
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'app', 'apm', 'email', 'password',
     ];
 
     /**
@@ -27,4 +32,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
+    }
 }

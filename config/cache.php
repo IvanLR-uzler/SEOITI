@@ -59,11 +59,8 @@ return [
                 env('MEMCACHED_PASSWORD'),
             ],
             'options' => [
-<<<<<<< HEAD
-                // Memcached::OPT_CONNECT_TIMEOUT => 2000,
-=======
-                // Memcached::OPT_CONNECT_TIMEOUT  => 2000,
->>>>>>> Creación de las rutas, vistas, auth, app.blade como plantilla y migrates
+                //Memcached::OPT_CONNECT_TIMEOUT => 2000,
+                //Memcached::OPT_CONNECT_TIMEOUT  => 2000,
             ],
             'servers' => [
                 [
